@@ -1,4 +1,4 @@
-package com.follow.clash.common
+package com.follow.clash
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable

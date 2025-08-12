@@ -19,7 +19,7 @@ extern void jni_attach_thread(scoped_jni *jni);
 
 extern void jni_detach_thread(const scoped_jni *env);
 
-extern void release_string(char **str);
+extern void release_string( char **str);
 
 #define ATTACH_JNI() __attribute__((unused, cleanup(jni_detach_thread))) \
                     scoped_jni _jni{}; \
@@ -27,7 +27,6 @@ extern void release_string(char **str);
                     JNIEnv *env = _jni.env
 
 #define scoped_string __attribute__((cleanup(release_string))) char*
-#define scoped_const_string __attribute__((cleanup(release_string))) const char*
 
 #define find_class(name) env->FindClass(name)
 #define find_method(cls, name, signature) env->GetMethodID(cls, name, signature)

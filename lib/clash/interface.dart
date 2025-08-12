@@ -74,8 +74,6 @@ mixin ClashInterface {
 }
 
 abstract class ClashHandlerInterface with ClashInterface {
-  FutureOr<void> reStart();
-
   FutureOr<bool> destroy();
 
   Future<T?> invoke<T>({
@@ -144,7 +142,7 @@ abstract class ClashHandlerInterface with ClashInterface {
           data: path,
           timeout: Duration(minutes: 2),
         ) ??
-        Result.success({});
+        Result<Map<String, dynamic>>.success({});
   }
 
   @override

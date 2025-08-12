@@ -90,13 +90,11 @@ class ClashService extends ClashHandlerInterface {
       commonPrint.log(error.toString());
       if (error is SocketException) {
         globalState.showNotifier(error.toString());
-        // globalState.appController.restartCore();
       }
     });
   }
 
-  @override
-  reStart() async {
+  Future<void> reStart() async {
     if (isStarting == true) {
       return;
     }

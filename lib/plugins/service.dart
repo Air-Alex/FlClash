@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:isolate';
 
 import 'package:fl_clash/common/constant.dart';
@@ -29,8 +30,15 @@ class Service {
     return _instance!;
   }
 
-  Future<T?> invokeAction<T>(String data) async {
-    return await methodChannel.invokeMethod<T>('invokeAction', data);
+  Future<ActionResult?> invokeAction(Action action) async {
+    final data = await methodChannel.invokeMethod<String>(
+      'invokeAction',
+      json.encode(action),
+    );
+    if (data == null) {
+      return null;
+    }
+    return json.decode(data) as ActionResult?;
   }
 
   VpnOptions handleGetVpnOptions() {
@@ -45,8 +53,8 @@ class Service {
     return await methodChannel.invokeMethod<bool>('stop') ?? false;
   }
 
-  Future<DateTime?> getRuntime<T>() async {
-    final ms = await methodChannel.invokeMethod<int>('getRuntime') ?? 0;
+  Future<DateTime?> getRunTime<T>() async {
+    final ms = await methodChannel.invokeMethod<int>('getRunTime') ?? 0;
     if (ms == 0) {
       return null;
     }

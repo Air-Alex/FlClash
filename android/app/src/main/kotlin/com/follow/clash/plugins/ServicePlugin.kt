@@ -2,9 +2,9 @@ package com.follow.clash.plugins
 
 import com.follow.clash.Service
 import com.follow.clash.State
+import com.follow.clash.awaitResult
 import com.follow.clash.common.Components
 import com.follow.clash.common.GlobalState
-import com.follow.clash.common.awaitResult
 import com.follow.clash.service.models.VpnOptions
 import com.google.gson.Gson
 import io.flutter.embedding.engine.plugins.FlutterPlugin

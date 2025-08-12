@@ -1069,8 +1069,9 @@ class AppController {
       final res = await futureFunction();
       return res;
     } catch (e) {
-      commonPrint.log('$e');
+      commonPrint.log('$futureFunction ===> $e');
       if (realSilence) {
+        globalState.showNotifier(e.toString());
         globalState.showNotifier(e.toString());
       } else {
         globalState.showMessage(

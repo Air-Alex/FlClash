@@ -3,7 +3,6 @@ package com.follow.clash
 import android.content.Intent
 import com.follow.clash.common.GlobalState
 import com.follow.clash.common.intent
-import com.follow.clash.common.plugin
 import com.follow.clash.common.startForegroundServiceCompat
 import com.follow.clash.plugins.AppPlugin
 import com.follow.clash.plugins.ServicePlugin

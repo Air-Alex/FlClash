@@ -133,7 +133,7 @@ class GlobalState {
   }
 
   Future updateStartTime() async {
-    startTime = await service?.getRuntime();
+    startTime = await service?.getRunTime();
   }
 
   Future handleStop() async {
